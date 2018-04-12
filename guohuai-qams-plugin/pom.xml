@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.guohuai</groupId>
+	<artifactId>guohuai-qams-plugin</artifactId>
+	<version>1.0.15.RELEASE</version>
+	<packaging>jar</packaging>	
+	<parent>
+		<groupId>com.guohuai</groupId>
+		<artifactId>common.basic.parent</artifactId>
+		<version>1.2.7.RELEASE</version>
+	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<start-class>com.guohuai.qams.Application</start-class>
+	</properties>
+
+	<dependencies>
+		<dependency>
+		<groupId>com.guohuai</groupId>
+		<artifactId>guohuai-operate-sdk</artifactId>
+		<version>3.0.9</version>
+	</dependency>
+	</dependencies>
+ 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+
+				<configuration>
+					<excludes>
+						<exclude>static/assets/js/config.js</exclude>
+						<exclude>**/*.properties</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>snapshots</id>
+			<url>http://60.205.219.141:8081/nexus/content/repositories/snapshots</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://60.205.219.141:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

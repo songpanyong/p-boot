@@ -1,0 +1,181 @@
+<script id="dotTemplate" type="text/x-dot-template">
+	{{~it:item:index}} 
+     <div class="issuemode"><div class="row"><div class="col-sm-12"><div class="col-sm-1" style="font-weight:bold;">【问题{{=index+1}}】</div><div class="col-sm-10" style="font-weight:bold;">{{=item.content}}</div><div><button id='{{=item.id}}'  type='button' class='btn btn-default btn-sm btn-edit'    style='margin:5px'>编辑</button><button id='{{=item.id}}'  type='button' class='btn btn-default btn-sm btn-del'  style='margin:5px'>删除</button></div></div></div></br>
+		{{ for (var key in item.answers) { }}
+			<div class="row"><div class="col-sm-12"><div class="col-sm-1"></div><div class="col-sm-6">{{=item.answers[key].sn}}:&nbsp&nbsp&nbsp&nbsp{{=item.answers[key].text}}</div><div class="col-sm-5">得分({{=item.answers[key].score}})&nbsp已有{{=item.answers[key].number}}票，占总数的{{=item.answers[key].percent}}%</div></div></div>
+		{{ } }}
+	</div>
+        <div style="clear:both"></div>
+		<hr/>
+
+	{{~}}
+</script>
+<script id="sortTemplate" type="text/x-dot-template">
+{{~it:item:index}} 
+<tr><td>问题<input name="indexs[{{=index}}]" class="cindex" style="border:none;BACKGROUND-COLOR: transparent;" value='{{=index+1}}'></input><input type="hidden" name="sids[{{=index}}]" value="{{=item.id}}"></td><td>问题{{=item.content}}</td><td><button id='{{=item.id}}'  type='button' class='btn btn-default btn-sm btn-up'    style='margin:5px'>上移</button><button id='{{=item.id}}'  type='button' class='btn btn-default btn-sm btn-down'  style='margin:5px'>下移</button></td></tr>
+{{~}}
+</script>
+<!-- 页面头部 -->
+<section class="content-header">
+	<h1>问卷详情</h1>
+	<ol class="breadcrumb">
+		<li><a href="javascript:void(0)"><i class="fa fa-home"></i>问卷详情</a>
+		</li>
+		<li class="active">问卷详情</li>
+	</ol>
+
+</section>
+
+<!--主要内容-->
+<section class="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<!-- 主体Grid -->
+			<div class="box box-primary">
+				<!-- Grid头部 -->
+				<div class="box-header">
+					<h4 class="modal-title">问卷详情</h4>
+					<form id="searchForm" name="searchForm" method="post"
+						style="position: absolute; top: 12px; left: 200px;">
+						<select id="queID" name="queName" class="form-control input-sm"></select>
+					</form>
+					<div class="box-tools">
+						<button id="qamsQueSort" class="btn btn-default btn-sm">
+							<i class="fa fa-plus"></i>调查问题排序
+						</button>
+						<button id="qamsQueAdd" class="btn btn-default btn-sm">
+							<i class="fa fa-plus"></i> 新增调查问题
+						</button>
+					</div>
+				</div>
+
+				<!-- Grid内容体 -->
+				<div class="box-body">
+					<form id="qamsQueDetail" name="qamsQueDetail" method="post">
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问卷类型</label> <input name="type" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问题个数</label> <input name="number" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问卷最低分</label> <input name="minScore" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问卷最高分</label> <input name="maxScore" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+						<div id="dataSource">
+							<div id="222"></div>
+							<div id="333"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- 新建调查问题弹窗 -->
+<div id="addQuestionModal" data-backdrop="static"
+	class="modal fade bs-example-modal-mg" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-mg" role="document">
+		<div class="modal-content">
+			<!-- 模态窗头部 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="editTitle">新增/编辑调查问题</h4>
+			</div>
+			<!-- 模态窗内容体  -->
+			<div class="modal-body">
+				<form id="addQamsQueForm" name="addQamsQueForm" method="post">
+				<input type="hidden" id="oid" name="oid" >
+				<input type="hidden" id="sid" name="sid" >
+					<div class="row">
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>问题类型</label>
+									<select name='chType' id='QueType' class="form-control input-sm">
+									<option value="CWZK" selected="selected">财务状况方面</option>
+									<option value="TZZS" selected="selected">投资知识方面</option>
+									<option value="TZJY" selected="selected">投资经验方面</option>
+									<option value="TZMB" selected="selected">投资目标方面</option>
+									<option value="FXPH" selected="selected">风险偏好方面</option>
+									</select>
+								</div>
+							</div>
+							</div>
+							<div class="row">
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>问题</label>
+									  <textarea name="issue" class="form-control"placeholder="问题" style="width: 566px; height: 68px;" required></textarea>	 
+								</div>
+							</div>
+					</div>
+				
+					<div id="answerList">
+					<div id="addanswer" class="btn btn-default">新增答案</div>
+					</div>	 
+						
+				</form>
+			</div>
+			<!-- 模态窗底部 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+				<!--<button id="saveQamsQueSubmit" type="button" class="btn btn-primary btn-submit addQamsQueSubmit">保存并修改</button>-->
+				<button id="addQamsQueSubmit" type="button" class="btn btn-primary btn-submit addQamsQueSubmit">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 问题排序 -->
+<div id="sortQuestionModal" data-backdrop="static"
+	class="modal fade bs-example-modal-mg" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-mg" role="document">
+		<div class="modal-content">
+			<!-- 模态窗头部 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">调查问题排序</h4>
+			</div>
+			<!-- 模态窗内容体  -->
+			<div class="modal-body">
+				<form id="sortQamsQueForm" name="sortQamsQueForm" method="post">
+				<!-- 主体数据表格 -->
+					<table id="sortQueTable"
+						class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>问题</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="tbodys"></tbody>
+					</table>
+				</form>
+			</div>
+			<!-- 模态窗底部 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+				<button id="sortQamsQueSubmit" type="button" class="btn btn-primary btn-submit sortQamsQueSubmit">保存</button>
+			</div>
+		</div>
+	</div>
+</div>

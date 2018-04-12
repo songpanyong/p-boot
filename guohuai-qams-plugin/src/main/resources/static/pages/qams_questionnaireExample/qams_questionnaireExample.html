@@ -1,0 +1,120 @@
+<script id="dotTemplate" type="text/x-dot-template">
+
+	{{~it:item:index}}
+	<div class="row"><div class="col-sm-12"><div class="col-sm-2" style="font-weight:bold;">问题【{{=index+1}}】</div><div class="col-sm-10" style="font-weight:bold;">{{=item.content}}</div></div></div></br>
+		{{ for (var key in item.answers) { }}
+			<div class="row"><div class="col-sm-12"><div class="col-sm-2"></div><div class="col-sm-10"><input type="radio" class="qams_options" id="{{=item.id}}" name="{{=item.id}}" value="{{=item.answers[key].aid}}">&nbsp{{=item.answers[key].sn}}:&nbsp&nbsp&nbsp&nbsp{{=item.answers[key].text}}</div></div></div>
+		{{ } }}
+        <div style="clear:both"></div>
+		<hr/>
+	
+	{{~}}
+</script>
+
+<!-- 页面头部 -->
+<section class="content-header">
+	<h1>
+    答卷示例
+  </h1>
+	<ol class="breadcrumb">
+		<li>
+			<a href="javascript:void(0)"><i class="fa fa-home"></i> 问卷调查结果</a>
+		</li>
+		<li class="active"> 答卷示例</li>
+	</ol>
+	<form id="searchForm" name="searchForm" method="post" style="position: absolute; top: 12px; left: 200px;">
+		<select name="queName" class="form-control input-sm"></select>
+	</form>
+</section>
+
+<!--主要内容-->
+<section class="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<!-- 主体Grid -->
+			<div class="box box-primary">
+				<!-- Grid头部 -->
+				<div class="box-header">
+					<p class="form-header">问卷详情</p>
+				</div>
+				<!-- Grid内容体 -->
+				<div class="box-body">
+					<form id="qamsQueDetail" name="qamsQueDetail" method="post">
+						<input type="hidden" name="sid" value="">
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问卷类型</label>
+								<input name="type" type="text" class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问题个数</label>
+								<input name="number" type="text" class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问卷最低分</label>
+								<input name="minScore" type="text" class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问卷最高分</label>
+								<input name="maxScore" type="text" class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+					</form>
+					<form id="dataSource"></form>
+					<div class="box-tools">
+						<button id="answerQueSave"  type="button" class="btn btn-default btn-sm pull-right">
+              			<i class="fa fa-plus"></i> 提交
+            			</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- 提交 按钮弹窗 开始-->
+<div id="submitModal" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<!-- 模态窗头部 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">提交成功</h4>
+			</div>
+			<!-- 模态窗内容体 -->
+			<div class="modal-body">
+				<form id="qamsAnswerQueDetail" name="qamsAnswerQueDetail" method="post">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>总得分</label>
+								<input name="score" type="text" class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>得分评级</label>
+								<input name="grade" type="text" class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="confirmBtn" type="button" class="btn btn-default">确定</button>
+					</div>
+				</form>
+			</div>
+			<!-- 模态窗底部 -->
+		</div>
+	</div>
+</div>
+<!-- 提交 按钮弹窗 结束-->

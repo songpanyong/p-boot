@@ -1,0 +1,9 @@
+package com.guohuai.rules;
+global com.guohuai.rules.action.SpringEventAction ruleAction;
+
+rule "gh_rule_0af72f4c-000d-47e9-893d-7f3cedb0a863"
+when
+    $e : com.guohuai.rules.event.BaseEvent()
+then
+    ruleAction.execute("0af72f4c-000d-47e9-893d-7f3cedb0a863", $e, "couponAction", "{'ticketNumber':5}");
+end

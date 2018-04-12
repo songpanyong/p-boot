@@ -1,0 +1,127 @@
+
+<section class="content-header">
+	<h1>评分管理
+  </h1>
+	<ol class="breadcrumb">
+		<li>
+			<a href="javascript:void(0)"><i class="fa fa-home"></i>评分管理 </a>
+		</li>
+		<li class="active">评分管理</li>
+	</ol>
+	<form id="searchForm" name="searchForm" method="post" style="position: absolute; top: 12px; left: 200px;">
+		<select id="qID" name="que" class="form-control input-sm">
+		<option>--</option>
+		</select>
+	</form>
+</section>
+<!-- 主要内容 -->
+<section class="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<!-- 主体Grid -->
+			<div id="qamsScoreGrid" class="box box-primary">
+				<!-- Grid头部 -->
+				<div class="box-header">
+					<h3 class="box-title">评分管理</h3>
+					
+					<div class="box-tools">
+						<button id="addQamsScore" class="btn btn-default btn-sm">
+							<i class="fa fa-plus"></i> 评分设置
+						</button>
+					</div>
+				</div>
+				<!-- Grid内容体 -->
+				<div class="box-body">
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问题个数</label> <input id="onum" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问卷最低分</label> <input id="omis" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>问卷最高分</label> <input id="omas" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+						</div>
+					<!-- 主体数据表格 -->
+					<table id="qamsScoreTable"
+						class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>SN</th>
+								<th>问卷名称</th>
+								<th>风险等级</th>
+								<th>评分区间</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- 新建评分准则弹窗 -->
+<div id="addQamsScoreModal" data-backdrop="static"
+	class="modal fade bs-example-modal-mg" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-mg" role="document">
+		<div class="modal-content">
+			<!-- 模态窗头部 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">评分设置</h4>
+			</div>
+			<!-- 模态窗内容体  -->
+			<div class="modal-body">
+				<!-- 新增评分表单 -->
+				<form id="addQamsScoreForm" name="addQamsScoreForm" method="post">
+					<div class="form-group">
+						<label class="form-header" style="border-bottom: none">问卷详情</label> 
+					</div>
+					<div class="form-group">
+						<label >问卷</label> <select id="selectQue" name="que"
+							class="form-control input-sm" readonly="readonly">
+						</select>
+					</div>
+					<div class="form-group">
+							<div class="col-sm-4">
+								<label>问题个数</label> <input id="num" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+							<div class="col-sm-4">
+								<label>问卷最低分</label> <input id="mis" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+							<div class="col-sm-4">
+								<label>问卷最高分</label> <input id="mas" type="text"
+									class="form-control input-sm" readonly="readonly">
+							</div>
+					</div>
+					<div class="form-group" style="clear:left">
+						<label class="form-header" style="border-bottom: none">评分管理</label> 
+					</div>
+					<div class="" id="score">
+					</div>
+					
+				</form>
+			</div>
+			<!-- 模态窗底部 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取
+					消</button>
+				<button id="addQamsScoreSubmit" type="button"
+					class="btn btn-primary btn-submit addQamsScoreSubmit">保 存</button>
+			</div>
+		</div>
+	</div>
+</div>

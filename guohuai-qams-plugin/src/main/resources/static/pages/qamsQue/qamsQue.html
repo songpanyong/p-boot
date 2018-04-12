@@ -1,0 +1,152 @@
+<!-- 页面头部 -->
+<section class="content-header">
+	<h1>调查问卷</h1>
+	<ol class="breadcrumb">
+		<li><a href="javascript:void(0)"><i class="fa fa-dashboard"></i>调查问卷</a></li>
+		<li class="active">调查问卷</li>
+	</ol>
+</section>
+
+<!-- 主要内容 -->
+<section class="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<!-- 主体Grid -->
+			<div id="qamsQueGrid" class="box box-primary">
+				<!-- Grid头部 -->
+				<div class="box-header">
+					<h3 class="box-title">调查问卷</h3>
+					<div class="box-tools">
+						<button id="addQamsQue" class="btn btn-default btn-sm">
+							<i class="fa fa-plus"></i> 新增调查问卷
+						</button>
+					</div>
+				</div>
+				<!-- Grid内容体 -->
+				<div class="box-body">
+					<!-- 主体数据表格 -->
+					<table id="qamsQueTable" class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>问卷名称</th>
+								<th>问卷类型</th>
+								<th>问题个数</th>
+								<th>问卷评分范围</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- 新建调查问卷弹窗 -->
+<div id="addQamsQueModal" data-backdrop="static" class="modal fade bs-example-modal-mg" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-mg" role="document">
+		<div class="modal-content">
+			<!-- 模态窗头部 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">新增调查问卷</h4>
+			</div>
+			<!-- 模态窗内容体  -->
+			<div class="modal-body">
+				<!-- 新增评分表单 -->
+				<form id="addQamsQueForm" name="addQamsQueForm" method="post">
+					<div id='cnameDiv1' class="form-group">
+						<label>问卷名称：</label>
+						<input name="name" type="text" class="form-control input-sm" placeholder="问卷名称" required data-error="问卷名称不能为空" maxlength="32">
+						<div id='cnameErr1' class="help-block with-errors text-red"></div>
+					</div>
+					<div class="form-group">
+						<label>问卷类型：</label>
+						<select name="type" id="bdType" class="form-control input-sm" >
+						</select>
+					</div>
+				</form>
+			</div>
+			<!-- 模态窗底部 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+				<button id="addQamsQueSubmit" type="button" class="btn btn-primary btn-submit addQamsQueSubmit">提交</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 修改调查问卷弹窗 -->
+<div id="editQamsQueModal" data-backdrop="static" class="modal fade bs-example-modal-mg" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-mg" role="document">
+		<div class="modal-content">
+			<!-- 模态窗头部 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">修改调查问卷</h4>
+			</div>
+			<!-- 模态窗内容体  -->
+			<div class="modal-body">
+				<!-- 新增评分表单 -->
+				<form id="editQamsQueForm" name="editQamsQueForm" method="post">
+				<input name="sid" type="hidden" data-enum-fetch="sid" />
+					<div id='enameDiv1' class="form-group">
+						<label>问卷名称：</label>
+						<input name="name" type="text" class="form-control input-sm" placeholder="问卷名称" required data-error="问卷名称不能为空" maxlength="32">
+						<div id="enameErr1" class="help-block with-errors text-red"></div>
+					</div>
+					<div class="form-group">
+						<label>问卷类型：</label>
+						<select name="type" id="editType" disabled="disabled" class="form-control input-sm" >
+						</select>
+					</div>
+				</form>
+			</div>
+			<!-- 模态窗底部 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+				<button id="editQamsQueSubmit" type="button" class="btn btn-primary btn-submit editQamsQueSubmit">提交</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- 操作confirm窗 使用 $$.confirm 初始化 -->
+<div id="doConfirm" class="popover func-delete-popover">
+	<div class="arrow"></div>
+	<h3 class="popover-title">提示</h3>
+	<div class="popover-content">
+		<p id="confirmTitle"></p>
+		<div class="popover-btn clearfix">
+			<div class="unit">
+				<button class="btn btn-block btn-primary accept">确 定</button>
+			</div>
+			<div class="unit">
+				<button class="btn btn-block btn-default cancel">取 消</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 提示信息弹窗 -->
+<div id="alertModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<!-- 模态窗头部 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">提示</h4>
+			</div>
+			<!-- 模态窗内容体 -->
+			<div class="modal-body" id="alertMessage">
+			</div>
+		</div>
+	</div> 
+</div>

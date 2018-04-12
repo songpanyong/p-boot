@@ -1,0 +1,162 @@
+<script id="dotTemplate" type="text/x-dot-template">
+
+	{{~it:item:index}}
+	<div class="row"><div class="col-sm-12"><div class="col-sm-2" style="font-weight:bold;">问题【{{=index+1}}】</div><div class="col-sm-10" style="font-weight:bold;">{{=item.content}}</div></div></div></br>
+		{{ for (var key in item.answers) { }}
+			<div class="row"><div class="col-sm-12"><div class="col-sm-2"></div><div class="col-sm-10"><input type="radio" class="qams_options" id="{{=item.id}}" name="{{=item.id}}" value="{{=item.answers[key].aid}}" {{=item.answers[key].checked}} disabled>&nbsp{{=item.answers[key].sn}}:&nbsp&nbsp&nbsp&nbsp{{=item.answers[key].text}}</div></div></div>
+		{{ } }}
+        <div style="clear:both"></div>
+		<hr/>
+	
+	{{~}}
+</script>
+
+<!-- 页面头部 -->
+<section class="content-header">
+	<h1>问卷调查结果</h1>
+	<ol class="breadcrumb">
+		<li><a href="javascript:void(0)"><i class="fa fa-dashboard"></i>问卷调查结果</a></li>
+		<li class="active">查看调查记录</li>
+	</ol>
+	<form id="queForm" name="queForm" method="post" style="position: absolute; top: 12px; left: 200px;">
+		<select name="qName" id="qId" class="form-control input-sm"></select>
+	</form>
+</section>
+
+<!-- 主要内容 -->
+<section class="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<!-- 主体Grid -->
+			<div class="box box-primary">
+				<!-- Grid头部 -->
+				<div class="box-header">
+					<h3 class="box-title">查看调查记录</h3>
+				</div>
+
+				<div class="box-body">
+					<!-- 搜索项表单 -->
+					<form id="searchForm" name="searchForm" method="post" class="search-body">
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label>参与者姓名</label>
+									<input name="name" type="text" class="form-control input-sm" placeholder="搜索参与者姓名">
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label>参与者电话</label>
+									<input name="telephone" type="text" class="form-control input-sm" placeholder="搜索参与者电话">
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label>问卷名称</label>
+									<input name="queName" type="text" class="form-control input-sm" placeholder="搜索问卷名称">
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label>风险等级</label>
+									<input name="grade" type="text" class="form-control input-sm" placeholder="搜索风险等级">
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label>提交问卷时间</label>
+									<div class="input-group input-group-sm">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"></i>
+										</div>
+										<input name="startDate" type="text" class="form-control datepicker input-sm" data-date-format="YYYY-MM-DD" placeholder="从" data-date-end="endDate">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label>&nbsp;</label>
+									<div class="input-group input-group-sm range">
+										<div class="input-group-addon">
+											<i class="fa fa-calendar"></i>
+										</div>
+										<input name="endDate" type="text" class="form-control datepicker input-sm" data-date-format="YYYY-MM-DD" placeholder="到"  data-date-begin="startDate">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label>参与者评分</label>
+									<div>
+										<input name="minScore" type="text" class="form-control input-sm" placeholder="从">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label style="position: relative;top: 38px;left: -21px;width: 10px; border-top: 1px solid #ccc;">&nbsp;</label>
+									<div>
+										<input name="maxScore" type="text" class="form-control input-sm" placeholder="到">
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<!-- 主体数据表格 -->
+					<table id="queResultTable" class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>参与者姓名</th>
+								<th>参与者电话</th>
+								<th>问卷名称</th>
+								<th>提交问卷时间</th>
+								<th>参与者评分</th>
+								<th>风险等级</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- 调查记录详情弹窗 开始-->
+<div id="queDetailModal" data-backdrop="static" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" style="height: auto;">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<!-- 模态窗头部 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">调查记录详情</h4>
+			</div>
+			<!-- 模态窗内容体 -->
+			<div class="modal-body">
+				<div id="queDetail">
+					<div class="row" class="center-block">
+						<div class="col-sm-12">
+							<div data-detail-fetch="qsName" style="text-align: center;font-size: 16px;"></div>
+						</div>
+					</div>
+					<div class="row" class="center-block">
+						<div class="col-sm-12">							
+							<div style="text-align: center;">提交时间:<div data-detail-fetch="createTime" style="display: inline-block;margin-top: 10px;font-size: 14px;" ></div></div>								
+						</div>
+					</div>
+				</div>
+				<form id="dataSource"></form>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+				</div>
+			</div>
+			<!-- 模态窗底部 -->
+		</div>
+	</div>
+</div>
+<!-- 调查记录详情 结束-->
+
+

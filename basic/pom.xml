@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.7.RELEASE</version>
+	</parent>
+
+	<groupId>com.guohuai</groupId>
+	<artifactId>common.basic</artifactId>
+	<version>1.4.3.RELEASE</version>
+	<packaging>jar</packaging>
+
+	<organization>
+		<name>GuoHuai Software</name>
+		<url>http://www.guohuaigroup.com</url>
+	</organization>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<servlet.version>3.1.0</servlet.version>
+		<asm.version>5.0.3</asm.version>
+		<cglib.version>3.1</cglib.version>
+		<zookeeper.version>3.4.6</zookeeper.version>
+		<jasypt.version>1.9.2</jasypt.version>
+		<java.version>1.8</java.version>
+		<xstream.version>1.4.10</xstream.version>
+		<logback.version>1.2.3</logback.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itext-asian</artifactId>
+			<version>5.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-velocity</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.struts</groupId>
+					<artifactId>struts-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.struts</groupId>
+					<artifactId>struts-taglib</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.struts</groupId>
+					<artifactId>struts-tiles</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt</artifactId>
+			<version>${jasypt.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt-hibernate4</artifactId>
+			<version>${jasypt.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.kaczmarzyk</groupId>
+			<artifactId>specification-arg-resolver</artifactId>
+			<version>0.6.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate.javax.persistence</groupId>
+					<artifactId>hibernate-jpa-2.0-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.netflix.feign</groupId>
+			<artifactId>feign-core</artifactId>
+			<version>8.18.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.netflix.feign</groupId>
+			<artifactId>feign-slf4j</artifactId>
+			<version>8.16.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.cloopen</groupId>
+			<artifactId>CCPREST</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<!-- 阿里大于短信 -->
+		<!-- <dependency> <groupId>com.alidayu</groupId> <artifactId>taobao-sdk</artifactId> 
+			<version>20160607</version> </dependency> -->
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream.version}</version>
+		</dependency>
+		<!-- 阿里OSS -->
+		<dependency>
+			<groupId>com.aliyun.oss</groupId>
+			<artifactId>aliyun-sdk-oss</artifactId>
+			<version>2.8.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<useSystemClassLoader>true</useSystemClassLoader>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.5.1</version>
+				<executions>
+					<execution>
+						<id>default-deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<serverId>nexus</serverId>
+					<nexusUrl>http://mvn.guohuaitech.com:8081/nexus/</nexusUrl>
+					<skipStaging>true</skipStaging>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>snapshots</id>
+			<url>http://60.205.219.141:8081/nexus/content/repositories/snapshots</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://60.205.219.141:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>

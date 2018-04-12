@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.guohuai</groupId>
+        <artifactId>common.basic.lite.parent</artifactId>
+        <version>1.0.1.RELEASE</version>
+    </parent>
+
+    <groupId>com.guohuai</groupId>
+    <artifactId>common.basic.parent</artifactId>
+    <version>1.4.1.RELEASE</version>
+    <packaging>pom</packaging>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.guohuai</groupId>
+            <artifactId>common.basic</artifactId>
+            <version>${com.guohuai.common.basic.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guohuai</groupId>
+            <artifactId>common.static</artifactId>
+            <version>${com.guohuai.common.static.version}</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <properties>
+        <hibernate.version>4.3.11.Final</hibernate.version>
+        <com.guohuai.common.basic.version>1.4.3.RELEASE</com.guohuai.common.basic.version>
+        <com.guohuai.common.static.version>1.0.2.RELEASE</com.guohuai.common.static.version>
+    </properties>
+    <distributionManagement>
+		<repository>
+			<id>snapshots</id>
+			<url>http://60.205.219.141:8081/nexus/content/repositories/snapshots</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://60.205.219.141:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

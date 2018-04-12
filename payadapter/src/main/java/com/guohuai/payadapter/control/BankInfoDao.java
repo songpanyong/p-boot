@@ -1,0 +1,7 @@
+package com.guohuai.payadapter.control;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+public interface BankInfoDao extends JpaRepository<BankInfo, String>, JpaSpecificationExecutor<BankInfo> {
+}

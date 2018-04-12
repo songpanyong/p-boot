@@ -1,0 +1,51 @@
+<!-- 页面头部 -->
+<section class="content-header">
+	<h1>新增调查问题</h1>
+	<ol class="breadcrumb">
+		<li><a href="javascript:void(0)"><i class="fa fa-dashboard"></i>问卷管理</a></li>
+		<li class="active">新增调查问题</li>
+	</ol>
+</section>
+
+<!-- 主要内容 -->
+<section class="content">
+		<div class="modal-content">
+			<!-- 模态窗头部 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">新增调查问题</h4>
+			</div>
+			<!-- 模态窗内容体  -->
+			<div class="modal-body">
+				<!-- 新增评分表单 -->
+				<form id="addQamsQueForm" name="addQamsQueForm" method="post">
+				<input type="hidden" id="oid" name="oid" >
+					<div class="row">
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label>问题</label>
+									<input name="issue" type="text" class="form-control input-sm" placeholder="问题">
+								</div>
+							</div>
+					</div>
+				<div id="answerList">
+						<ul id="answerId" style="list-style-type:none">
+							<li class="vote-add-btn"><button type="button" class="btn btn-default" data-dismiss="modal">新增答案</button></li>		
+						</ul>
+					</div>	 
+					
+						
+				</form>
+			</div>
+			<!-- 模态窗底部 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取 消</button>
+				<button id="saveQamsQueSubmit" type="button" class="btn btn-primary btn-submit saveQamsQueSubmit">保存</button>
+				<button id="addQamsQueSubmit" type="button" class="btn btn-primary btn-submit addQamsQueSubmit">保存提交</button>
+			</div>
+		</div>
+
+</section>
+

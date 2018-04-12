@@ -1,0 +1,22 @@
+template header
+
+ruleId
+eventType
+ruleExpr
+action
+actionParams
+
+package com.guohuai.rules;
+
+global com.guohuai.rules.action.SpringEventAction ruleAction;
+
+template "alert"
+
+rule "gh_rule_@{ruleId}"
+when
+    $e : @{eventType}@{ruleExpr}
+then
+    ruleAction.execute("@{ruleId}", $e, "@{action}", "@{actionParams}");
+end
+
+end template

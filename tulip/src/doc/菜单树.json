@@ -1,0 +1,216 @@
+[
+  {
+    "parent": "",
+    "buttons": [
+      
+    ],
+    "children": [
+      {
+        "parent": "nKKaixTZ82JYJ3fm",
+        "buttons": [
+          
+        ],
+        "children": [
+          {
+            "parent": "xyCYDCyarWDhjKFD",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "icon": "fa-circle-o",
+            "id": "SFW3Tsc8NbA8XeMJ",
+            "text": "活动管理",
+            "pageId": "event"
+          },
+          {
+            "parent": "xyCYDCyarWDhjKFD",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "icon": "fa-circle-o",
+            "id": "MYzWJZSXctKPef3P",
+            "text": "投资用户管理",
+            "pageId": "userInvest"
+          }
+        ],
+        "roles": [
+          "1614df24644111e6b6b400163e0021b3"
+        ],
+        "icon": "fa-tachometer",
+        "id": "xyCYDCyarWDhjKFD",
+        "text": "活动管理",
+        "pageId": ""
+      },
+      {
+        "parent": "nKKaixTZ82JYJ3fm",
+        "buttons": [
+          
+        ],
+        "children": [
+          {
+            "parent": "pMQFFAX8fynb4eKR",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "icon": "fa-circle-o",
+            "id": "Sc6cxZ7pZp5iWDmB",
+            "text": "红包",
+            "pageId": "coupon1"
+          },
+          {
+            "parent": "pMQFFAX8fynb4eKR",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "icon": "fa-circle-o",
+            "id": "F5W8ySPZdrzkGtd8",
+            "text": "代金券",
+            "pageId": "coupon2"
+          },
+          {
+            "parent": "pMQFFAX8fynb4eKR",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "icon": "fa-circle-o",
+            "id": "aprGeprZsMshcZpE",
+            "text": "加息券",
+            "pageId": "coupon3"
+          },
+          {
+            "parent": "pMQFFAX8fynb4eKR",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "icon": "",
+            "id": "sn8JQG7jFHsFxQDN",
+            "text": "体验金",
+            "pageId": "coupon4"
+          },
+          {
+            "parent": "pMQFFAX8fynb4eKR",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "icon": "",
+            "id": "ECbFTfxSbwf8hryf",
+            "text": "卡券明细",
+            "pageId": "couponDetail"
+          }
+        ],
+        "roles": [
+          "1614df24644111e6b6b400163e0021b3"
+        ],
+        "icon": "fa-credit-card",
+        "id": "pMQFFAX8fynb4eKR",
+        "text": "卡券管理",
+        "pageId": ""
+      },
+      {
+        "parent": "nKKaixTZ82JYJ3fm",
+        "buttons": [
+          
+        ],
+        "roles": [
+          "1614df24644111e6b6b400163e0021b3"
+        ],
+        "icon": "fa-line-chart",
+        "id": "CptekbbNHCfsDbPG",
+        "text": "数据分析",
+        "pageId": "data-analyze"
+      }
+    ],
+    "roles": [
+      "1614df24644111e6b6b400163e0021b3"
+    ],
+    "icon": "",
+    "id": "nKKaixTZ82JYJ3fm",
+    "text": "运营管理",
+    "pageId": ""
+  },
+  {
+    "parent": "",
+    "buttons": [
+      
+    ],
+    "children": [
+      {
+        "parent": "nKKaixTZ82JYJRfm",
+        "buttons": [
+          
+        ],
+        "children": [
+          {
+            "parent": "4z7pxRnB3nKGsX5p",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "id": "BnjPtJR2XAj63pMi",
+            "text": "菜单管理",
+            "pageId": "menu"
+          },
+          {
+            "parent": "4z7pxRnB3nKGsX5p",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "id": "cjQd56mXnWAmzyeh",
+            "text": "角色管理",
+            "pageId": "role"
+          },
+          {
+            "parent": "4z7pxRnB3nKGsX5p",
+            "buttons": [
+              
+            ],
+            "roles": [
+              "1614df24644111e6b6b400163e0021b3"
+            ],
+            "id": "bJ6zjZxBWzSPhDkS",
+            "text": "用户管理",
+            "pageId": "user"
+          }
+        ],
+        "roles": [
+          "1614df24644111e6b6b400163e0021b3"
+        ],
+        "icon": "fa-lock",
+        "id": "4z7pxRnB3nKGsX5p",
+        "text": "权限管理",
+        "pageId": ""
+      }
+    ],
+    "roles": [
+      "1614df24644111e6b6b400163e0021b3"
+    ],
+    "id": "nKKaixTZ82JYJRfm",
+    "text": "系统设置",
+    "pageId": ""
+  }
+]
